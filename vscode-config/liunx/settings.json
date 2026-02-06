@@ -1,0 +1,310 @@
+{
+  // --------------- files config start ---------------
+  "files.eol": "\n", // 文件的默认换行符为 LF（Unix 风格）
+  "files.autoSaveDelay": 500, // 自动保存延迟为 500 毫秒
+  "files.insertFinalNewline": true, // 在文件末尾插入一个换行符
+  "files.simpleDialog.enable": true, // 启用简单对话框
+  "files.autoSave": "onWindowChange", // 当窗口失去焦点时自动保存文件
+  //  ----------------- files config end ----------------
+
+
+  // ------------------- edit config start --------------------------
+  "editor.suggestSelection": "first", // 在代码补全时默认选择第一个建议
+  "editor.tabSize": 2, // 设表符的宽度为 2 个空格
+  "editor.fontSize": 14, // 编辑器中字体的大小为 13 像素
+  "editor.fontFamily": "JetBrains Mono,monospace,Consolas", // 使用 JetBrains Mono 字体
+  "editor.linkedEditing": true, // 启用链接编辑功能，允许同时编辑多个相同的文本
+  "editor.bracketPairColorization.enabled": true, // 启用括号配对着色功能
+  "editor.guides.bracketPairs": "active", // 仅在活动编辑器中显示括号配对指南
+  "editor.accessibilitySupport": "off", // 关闭辅助功能支持，提升性能
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit" // 在保存时自动修复 ESLint 错误
+  },
+  // ---------------------- edit config end ----------------------
+
+
+  // ----------------------- git config start  -------------------------
+  "git.autofetch": true, // 启用自动获取更新
+  "git.confirmSync": false, // 在同步时不弹出确认对话框
+  "git.enableSmartCommit": true, // 启用智能提交
+  "git.untrackedChanges": "separate", // 将未跟踪的更改单独显示
+  // ----------------------- git config end  -------------------------
+
+
+  // ----------------------- workbench config start  -------------------------
+  "workbench.startupEditor": "none", // 启动时不打开任何编辑器
+  "workbench.iconTheme": "material-icon-theme", // 设置图标主题为 Material Icon Theme
+  "workbench.editor.untitled.hint": "hidden", // 隐藏未命名编辑器的提示
+  "workbench.tree.expandMode": "singleClick", // 单击展开树视图
+  "workbench.tree.indent": 10, // 设置树视图的缩进为 10 像素
+  "workbench.colorTheme": "One Dark Pro", // 设置主题颜色为 One Dark Pro
+  // ----------------------- workbench config end  -------------------------
+
+
+
+  // ----------------------- terminal config start  -------------------------
+  "terminal.explorerKind": "external", // 设置终端类型为外部终端
+  "terminal.integrated.fontFamily": "monospace", // 设置终端字体为等宽字体
+  "terminal.integrated.defaultProfile.windows": "Git Bash", // 设置默认终端为 Git Bash
+  "terminal.integrated.scrollback": 10000, // 设置终端滚动缓存
+  "terminal.integrated.persistentSessionScrollback": 1000, // 设置持续会话滚动缓存
+  // ----------------------- terminal config end  -------------------------
+
+
+  // ----------------------- other config start  -------------------------
+  "search.exclude": { // 配置搜索时排除的文件和文件夹
+    "**/.git": true,
+    "**/.github": true,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.pnpm": true,
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/bower_components": true,
+    "**/dist/**": true,
+    "**/logs": true,
+    "**/node_modules": true,
+    "**/out/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
+  },
+  "typescript.inlayHints.variableTypes.enabled": false, // 禁用 TypeScript 变量类型的内联提示
+  "javascript.updateImportsOnFileMove.enabled": "always", // 始终在重命名或移动文件时自动更新 JavaScript 的导入路径
+  "typescript.updateImportsOnFileMove.enabled": "always", // 始终在重命名或移动文件时自动更新 TypeScript 的导入路径
+  "security.workspace.trust.untrustedFiles": "open", // 允许打开不受信任的文件
+  "explorer.confirmDragAndDrop": false, // 拖放文件时不弹出确认对话框
+  "diffEditor.ignoreTrimWhitespace": true, // 在比较文件时不忽略空白字符的差异
+  "prettier.enable": false, // 禁用 Prettier
+  "i18n-ally.displayLanguage": "zh",
+  "i18n-ally.languageTagSystem": "legacy",
+  "extensions.autoUpdate": "onlyEnabledExtensions", // 仅自动更新已启用的扩展
+  "extensions.experimental.affinity": { // 设置扩展之间的优先级 （将插件分配到独立的进程，减少主进程的负担）
+    "dbaeumer.vscode-eslint": 1,
+    "vscodevim.vim": 2,
+    "csstools.postcss": 3,
+    "eamodio.gitlens": 4,
+    "antfu.unocss": 5,
+    "bradlc.vscode-tailwindcss": 6,
+    "hollowtree.vue-snippets": 7
+  },
+  // file header 暂时弃用
+  // "fileheader.customMade": {
+  //   "Author": "jiangxd<jiangxd2016@gmail.com>",
+  //   "Date": "Do not edit", // 设置后默认设置文件生成时间
+  //   "LastEditTime": "Do not edit", // 设置后，保存文件更改默认更新最后编辑时间
+  //   "LastEditors": "jiangxd<jiangxd2016@gmail.com>", // 设置后，保存文件更改默认更新最后编辑人
+  //   "Description": "",
+  //   "FilePath": "Do not edit" // 设置后，默认生成文件相对于项目的路径
+  // },
+
+// ----------------------- other config end  -------------------------
+
+
+  // ----------------------- vim config start  -------------------------
+  "vim.foldfix": true, // 避免 光标上下移动导致折叠代码块自动展开
+  "vim.hlsearch": true, // 搜索后高亮显示匹配内容
+  "vim.incsearch": true, // 自动翻页
+  "vim.easymotion": true, // ex  <leader><leader>s<char> <-- 快速跳转到指定字符位置
+  "vim.useCtrlKeys": false, // 关闭vim的一些ctrl键命令
+  "vim.useSystemClipboard": true, // 使用系统剪切板
+  "vim.camelCaseMotion.enable": true, // 启用驼峰命名法智能移动
+  // "vim.vimrc.enable": false,
+  // "vim.vimrc.path": "$HOME/.vsvimrc",
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // vim
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "["
+      ],
+      // 上一个有疑问的地方
+      "commands": [
+        "editor.action.marker.prevInFiles"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "]"
+      ],
+      // 下一个有问题的地方
+      "commands": [
+        "editor.action.marker.nextInFiles"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "x",
+        "x"
+      ],
+      // 关闭其他标签
+      "commands": [
+        "workbench.action.closeOtherEditors"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      // 格式化文档
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      // -- run
+      "commands": [
+        "workbench.action.files.save",
+        "workbench.action.debug.run"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "r"
+      ],
+      // debug run 
+      "commands": [
+        "workbench.action.files.save",
+        "workbench.action.debug.start"
+      ]
+    },
+    // -- debug
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "b"
+      ],
+      // 切换断点
+      "commands": [
+        "editor.debug.action.toggleBreakpoint"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "c"
+      ],
+      // 添加条件断点
+      "commands": [
+        "editor.debug.action.conditionalBreakpoint"
+      ]
+    },
+    // -- problem nav
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "k"
+      ],
+      // 转到上一个问题
+      "commands": [
+        "editor.action.marker.prev"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d",
+        "j"
+      ],
+      // 转到下一个问题
+      "commands": [
+        "editor.action.marker.next"
+      ]
+    },
+    // -- git hunk nav
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      // 显示上一个更改
+      "commands": [
+        "workbench.action.editor.previousChange",
+        "editor.action.dirtydiff.previous"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      // 显示下一个更改
+      "commands": [
+        "workbench.action.editor.nextChange",
+        "editor.action.dirtydiff.next"
+      ]
+    },
+    // -- rename symbol
+    {
+      "before": [
+        "<leader>",
+        "r",
+        "n"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    }
+  ],
+  /* vim settings end */
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    // 带有vim插件的vscode,它的Ctrl+w是由vscode控制，非vim插件扩展快捷键控制。若改为true,则就是了。
+    "<C-w>": false
+  },
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "keyboard-us",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote -n",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote -s {im}",
+  "vim.searchHighlightColor": "#5f00af",
+  //  ----------------------- vim config end  -------------------------
+}

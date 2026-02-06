@@ -1,0 +1,27 @@
+{
+
+	"vue": {
+		"prefix": "vue",
+		"body": [
+			"import { defineComponent } from 'vue';",
+
+			"const $1Props = {",
+			"type: {",
+			"  type: String,",
+			"  default: '',",
+			" },",
+			"};",
+			"",
+			"export default defineComponent({",
+			"  name: '$1',",
+			"  props: $1Props,",
+			"  setup(props) {",
+			"    return () => (",
+			"      <div>{props.type}</div>",
+      " );",
+			"  },",
+			"});"
+		],
+		"description": "vue tsx"
+	}
+}

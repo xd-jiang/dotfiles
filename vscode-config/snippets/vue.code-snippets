@@ -1,0 +1,98 @@
+{
+  "vue2": {
+    "prefix": "vue2",
+    "body": [
+      "<template>",
+      "    <div class=\"main\">\n",
+      "    </div>",
+      "</template>",
+      "<script>",
+      "export default {",
+      "   data() {",
+      "      return {",
+      "      }",
+      "   },",
+      "   methods: {",
+      "     clickHandler() {}",
+      "   },",
+      "   mounted(){}",
+      "}",
+      "</script>",
+      "<style lang='scss' scoped>",
+      "</style>",
+      "$2"
+    ],
+    "description": "Log output to console"
+  },
+  "vue3": {
+    "prefix": "vue3",
+    "body": [
+      "<template>",
+      " <div class=\"main\">",
+      "$1",
+      " </div>",
+      "</template>\n",
+      "<script setup lang=\"ts\">",
+      " const props = defineProps<{ modelValue: boolean }>()",
+      "</script>\n",
+      "<style lang=\"scss\" scoped>",
+      "</style>",
+    ],
+    "description": "vue3 snippets"
+  },
+
+  "useAttrs": {
+    "prefix": "useAttrs 使用",
+    "body": [
+      "const attrs = useAttrs()"
+    ],
+    "description": "useAttrs"
+  },
+  "defineProps": {
+    "prefix": "defineProps 使用",
+    "body": [
+      "const props = defineProps<{name:any}>()"
+    ],
+    "description": "defineProps"
+  },
+  "ref": {
+    "prefix": "ref 使用",
+    "body": [
+      "const {$1} = ref(${2})"
+    ],
+    "description": "ref"
+  },
+  "reactive": {
+    "prefix": "reactive 使用",
+    "body": [
+      "const {$1} = reactive(${2})"
+    ],
+    "description": "reactive"
+  },
+  "slot": {
+    "prefix": "slot 标签",
+    "body": [
+      "<slot />"
+    ],
+    "description": "slot"
+  },
+
+  "defineComponent": {
+    "prefix": "defineComponent 展开",
+    "body": [
+      "import { defineComponent } from 'vue'",
+      "export default defineComponent({",
+      "  name: '$1',",
+      "  props: {",
+      "    $2",
+      "  },",
+      "  setup(props, { attrs, slots }) {",
+      "    return {",
+      "      $3",
+      "    }",
+      "  }",
+      "})"
+    ],
+    "description": "defineComponent"
+  },
+}
