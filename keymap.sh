@@ -17,5 +17,5 @@ else
 fi
 
 # run sh
-sh "$KEMAP_CONFIG"
+sudo bash "$KEMAP_CONFIG"
 
