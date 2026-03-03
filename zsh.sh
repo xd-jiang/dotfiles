@@ -56,6 +56,7 @@ fi
 # 修改默认 shell 为 zsh
 if [ "$(basename "$SHELL")" != "zsh" ]; then
   echo "Changing default shell to zsh..."
+  echo "/usr/bin/zsh" | sudo tee -a /etc/shells
   chsh -s "$(command -v zsh)"
 fi
 

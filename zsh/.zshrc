@@ -77,9 +77,9 @@ alias python='/usr/bin/python3'
 alias pip='/usr/local/bin/pip3'
 
 # customer directory
-alias www="/Users/xd/Documents/www"
-alias work="/Users/xd/Documents/work"
-alias dep="/Users/xd/Documents/dep"
+alias www="$HOME/Documents/www"
+alias work="$HOME/Documents/work"
+alias dep="$HOME/Documents/dep"
 alias ws="open -a webstorm"
 
 # nvm config for mac
