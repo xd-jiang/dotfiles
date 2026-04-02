@@ -1,4 +1,4 @@
-source ./zsh.zsh
+source ./zsh.sh
 source ./vscode.sh
 source ./keymap.sh
 # source ./karabiner.sh

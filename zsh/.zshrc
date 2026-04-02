@@ -3,20 +3,19 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
+ZSH_DISABLE_COMPFIX="true"
 
 
 plugins=(
   git
   zsh-autosuggestions
-  zsh-syntax-highlighting
   z
   k
   git-open
+  zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
-
-ZSH_DISABLE_COMPFIX="true"
+[ -s "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
 
 # alias
 alias v='nvim'
@@ -56,8 +55,6 @@ alias ll="ls -la"
 alias gz="tar -zxvf"
 alias cp="cp -i"
 alias mvim='mvim -v'
-alias ip="ifconfig en0 inet | grep inet | awk '{ print \$2 }'"
-
 alias cz="pnpm run cz"
 alias ga="git add"
 alias gd="git diff"
@@ -69,26 +66,27 @@ alias gac="git add . && git commit -m" # + commit message
 alias gco="git checkout"
 alias gk="git checkout ."
 alias hp="hexo clean && hexo g && hexo d"
-alias gacp="git add . && git ci -m 'update' && git push"
+alias gacp="git add . && git commit -m 'update' && git push"
 alias aga="alias | grep git" # all git command abbreviations
 alias glt="git log --date format:'%Y-%m-%d %H:%M:%S'"
+alias ip="ifconfig en0 inet | grep inet | awk '{ print \$2 }'"
 
-alias python='/usr/bin/python3'
+alias python='python3'
 
 # customer directory
 alias www="$HOME/Documents/www"
 alias work="$HOME/Documents/work"
 alias dep="$HOME/Documents/dep"
-alias ws="open -a webstorm"
 
-# nvm config for mac
-  # export NVM_DIR="$HOME/.nvm"
-  # [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+FNM_PATH="/home/ziyang/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
 
 export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # nvm hook
 # autoload -U add-zsh-hook
@@ -116,22 +114,22 @@ export NVM_DIR="$HOME/.config/nvm"
 
 #创建git tag
 tag() {
+  local tagname detail
   echo "请输入tagname:"
-  read tagname
-  if [ "$tagname" = "" ]; then
+  read -r tagname
+  if [ -z "$tagname" ]; then
     echo "输入的tagname为空"
-    exit 1
+    return 1
   fi
 
   echo "请输入描述:"
 
-  read detail
-  if [ -n "detail" ]; then
+  read -r detail
+  if [ -z "$detail" ]; then
     detail="say nothing"
   fi
-  if [ "$?" = 0 ]; then
-    git tag -a $tagname -m $detail
-  fi
+
+  git tag -a "$tagname" -m "$detail"
 }
 
 
@@ -142,69 +140,81 @@ ignore() {
     return
   fi
   echo "...正在生成.gitignore"
-  touch .gitignore                                                                                                                                # 创建文件
-  echo "*.DS_Store  \nnode_modules \n*.log \nidea/ \n*.local \n.DS_Store \ndist \n.cache \n.idea \nlogs \n&-debug.log \n*-error.log" >>.gitignore # 添加内容
+  cat > .gitignore <<'EOF'
+*.DS_Store
+node_modules
+*.log
+idea/
+*.local
+.DS_Store
+dist
+.cache
+.idea
+logs
+*-debug.log
+*-error.log
+EOF
 }
 
 # template
 tvue() {
-  if [ ! $1 ]; then
+  if [ -z "${1:-}" ]; then
     echo "请输入模板名称"
     return 0
   fi
   echo "正在创建$1目录,下载starter-vue模板,请稍等..."
-  if [ ! $2 ]; then
-    pnpx degit jiangxd2016/starter-vue $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+  if [ -z "${2:-}" ]; then
+    pnpx degit jiangxd2016/starter-vue "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-vue $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-vue "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tvue-lib() {
-  if [ ! $1 ]; then
+  if [ -z "${1:-}" ]; then
     echo "请输入模板名称"
     return 0
   fi
   echo "正在创建$1目录,下载starter-vue模板,请稍等..."
-  if [ ! $2 ]; then
-    pnpx degit jiangxd2016/starter-vue-lib $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+  if [ -z "${2:-}" ]; then
+    pnpx degit jiangxd2016/starter-vue-lib "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-vue-lib $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-vue-lib "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tts() {
-  if [ ! $1 ]; then
+  if [ -z "${1:-}" ]; then
     echo "请输入模板名称"
     return 0
   fi
   echo "正在创建$1目录,下载starter-ts模板,请稍等..."
-  if [ ! $2 ]; then
-    pnpx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+  if [ -z "${2:-}" ]; then
+    pnpx degit jiangxd2016/starter-ts "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-ts "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tre() {
-  if [ ! $1 ]; then
+  if [ -z "${1:-}" ]; then
     echo "请输入模板名称"
     return 0
   fi
   echo "正在创建$1目录,下载starter-react模板,请稍等..."
-  if [ ! $2 ]; then
-    pnpx degit jiangxd2016/starter-react $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+  if [ -z "${2:-}" ]; then
+    pnpx degit jiangxd2016/starter-react "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-react $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-react "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tmo() {
-  if [ ! $1 ]; then
+  if [ -z "${1:-}" ]; then
     echo "请输入模板名称"
     return 0
   fi
   echo "正在创建$1目录,下载starter-monorepo模板,请稍等..."
-  if [ ! $2 ]; then
-    pnpx degit jiangxd2016/starter-monorepo $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+  if [ -z "${2:-}" ]; then
+    pnpx degit jiangxd2016/starter-monorepo "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-monorepo $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-monorepo "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 
@@ -212,7 +222,7 @@ tmo() {
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/home/ziyang/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -240,4 +250,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-. "$HOME/.local/share/../bin/env"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# fnm
+FNM_PATH="/home/ziyang/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
