@@ -41,6 +41,52 @@ echo "User home directory: $user_home"
 MY_ZSH="$PWD/zsh"
 ZSH_CUSTOM="$user_home/.oh-my-zsh/custom/plugins"
 
+
+# 安装python uv
+if command -v uv &> /dev/null; then
+    uv --version
+else
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+    uv --version
+fi
+
+# 安装node
+if command -v node &> /dev/null; then
+    node --version
+else
+    curl -fsSL https://fnm.vercel.app/install | bash
+    export PATH="$HOME/.fnm:$PATH"
+    eval "$(fnm env --use-on-cd)"
+    fnm install 22
+fi
+
+# 安装git
+if command -v git &> /dev/null; then
+    git --version
+else
+    if [ "$os_type" = "macos" ]; then
+        echo "Installing git on macOS..."
+        if ! cmd_exists brew; then
+            echo "Homebrew not found, installing Homebrew first..."
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
+        brew install git
+    elif [ "$os_type" = "linux" ]; then
+        echo "Installing git on Linux..."
+        if [ "$(id -u)" -ne 0 ]; then
+            sudo apt update
+            sudo apt install -y git
+        else
+            apt update
+            apt install -y git
+        fi
+    else
+        echo "Unsupported OS for git installation: $os_type"
+        exit 1
+    fi
+fi
+
 # ============ 安装 zsh 和 oh-my-zsh ============
 if ! cmd_exists zsh; then
   echo "Installing zsh..."

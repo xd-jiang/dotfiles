@@ -306,5 +306,21 @@
   "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote -n",
   "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote -s {im}",
   "vim.searchHighlightColor": "#5f00af",
+  "git.openRepositoryInParentFolders": "always",
+  "chat.agent.enabled": false,
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "explorer.confirmPasteNative": false,
+  "terminal.integrated.initialHint": false,
+  "chat.viewSessions.orientation": "stacked",
+  "chatgpt.cliExecutable": "",
+  "claudeCode.preferredLocation": "panel",
   //  ----------------------- vim config end  -------------------------
 }

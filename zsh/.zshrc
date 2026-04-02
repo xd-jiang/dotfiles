@@ -74,7 +74,6 @@ alias aga="alias | grep git" # all git command abbreviations
 alias glt="git log --date format:'%Y-%m-%d %H:%M:%S'"
 
 alias python='/usr/bin/python3'
-alias pip='/usr/local/bin/pip3'
 
 # customer directory
 alias www="$HOME/Documents/www"
@@ -240,3 +239,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 
 export PATH="$HOME/.local/bin:$PATH"
+
+. "$HOME/.local/share/../bin/env"
