@@ -307,7 +307,6 @@
   "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote -s {im}",
   "vim.searchHighlightColor": "#5f00af",
   "git.openRepositoryInParentFolders": "always",
-  "chat.agent.enabled": false,
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
@@ -322,5 +321,6 @@
   "chat.viewSessions.orientation": "stacked",
   "chatgpt.cliExecutable": "",
   "claudeCode.preferredLocation": "panel",
+  "chat.allowAnonymousAccess": true,
   //  ----------------------- vim config end  -------------------------
 }
