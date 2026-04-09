@@ -78,11 +78,6 @@ alias www="$HOME/Documents/www"
 alias work="$HOME/Documents/work"
 alias dep="$HOME/Documents/dep"
 
-FNM_PATH="/home/ziyang/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env --shell zsh)"
-fi
 
 
 #创建git tag
