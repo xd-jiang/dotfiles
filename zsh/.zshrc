@@ -220,6 +220,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
+
 # fnm
 FNM_PATH="/home/ziyang/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
