@@ -322,5 +322,6 @@
   "chatgpt.cliExecutable": "",
   "claudeCode.preferredLocation": "panel",
   "chat.allowAnonymousAccess": true,
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
   //  ----------------------- vim config end  -------------------------
 }
