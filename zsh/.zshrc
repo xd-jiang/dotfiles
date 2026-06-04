@@ -132,9 +132,9 @@ tvue() {
   fi
   echo "正在创建$1目录,下载starter-vue模板,请稍等..."
   if [ -z "${2:-}" ]; then
-    pnpx degit jiangxd2016/starter-vue "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
+    pnpx degit xd-jiang/starter-vue "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-vue "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
+    pnpx degit xd-jiang/starter-vue "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tvue-lib() {
@@ -144,9 +144,9 @@ tvue-lib() {
   fi
   echo "正在创建$1目录,下载starter-vue模板,请稍等..."
   if [ -z "${2:-}" ]; then
-    pnpx degit jiangxd2016/starter-vue-lib "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
+    pnpx degit xd-jiang/starter-vue-lib "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-vue-lib "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
+    pnpx degit xd-jiang/starter-vue-lib "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tts() {
@@ -156,9 +156,9 @@ tts() {
   fi
   echo "正在创建$1目录,下载starter-ts模板,请稍等..."
   if [ -z "${2:-}" ]; then
-    pnpx degit jiangxd2016/starter-ts "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
+    pnpx degit xd-jiang/starter-ts "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-ts "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
+    pnpx degit xd-jiang/starter-ts "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tre() {
@@ -168,9 +168,9 @@ tre() {
   fi
   echo "正在创建$1目录,下载starter-react模板,请稍等..."
   if [ -z "${2:-}" ]; then
-    pnpx degit jiangxd2016/starter-react "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
+    pnpx degit xd-jiang/starter-react "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-react "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
+    pnpx degit xd-jiang/starter-react "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 tmo() {
@@ -180,23 +180,14 @@ tmo() {
   fi
   echo "正在创建$1目录,下载starter-monorepo模板,请稍等..."
   if [ -z "${2:-}" ]; then
-    pnpx degit jiangxd2016/starter-monorepo "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
+    pnpx degit xd-jiang/starter-monorepo "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio
   else
-    pnpx degit jiangxd2016/starter-monorepo "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
+    pnpx degit xd-jiang/starter-monorepo "$1" && echo "正在打开$1" && code "$1" && cd "$1" && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr "$2" || eval "$2"
   fi
 }
 
 # export PATH="/usr/local/opt/node@18/bin:$PATH"
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 
 # bind auto key
 # bindkey '^E' autosuggest-accept
@@ -227,3 +218,11 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env --shell zsh)"
 fi
+
+# pnpm
+export PNPM_HOME="/home/ziyang/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
