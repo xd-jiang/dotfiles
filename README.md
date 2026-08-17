@@ -46,3 +46,11 @@
 
 [rsshub](https://docs.rsshub.app/zh/routes/programming#%E7%83%AD%E9%97%A8
 )
+
+
+
+### 解决 Node.js "Error: EMFILE: too many open files" 错误
+
+    chmod +x fix_emfile.sh
+        sudo ./fix_emfile.sh
+    ulimit -n 检查是否输出 6553

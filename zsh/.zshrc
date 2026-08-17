@@ -208,8 +208,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 
 export PATH="$HOME/.local/bin:$PATH"
-
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 
 # fnm
@@ -226,3 +226,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
+# Pi
+export PATH="/home/ziyang/.local/share/fnm/node-versions/v22.22.3/installation/bin:$PATH"
+
