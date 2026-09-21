@@ -230,3 +230,7 @@ esac
 # Pi
 export PATH="/home/ziyang/.local/share/fnm/node-versions/v22.22.3/installation/bin:$PATH"
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ziyang/.local/bin:$PATH"
