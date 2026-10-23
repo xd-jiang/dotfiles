@@ -213,6 +213,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 # fnm
+# curl -fsSL https://fnm.vercel.app/install | bash
 FNM_PATH="/home/ziyang/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
@@ -232,5 +233,10 @@ export PATH="/home/ziyang/.local/share/fnm/node-versions/v22.22.3/installation/b
 
 
 
-# Added by Antigravity CLI installer
+
+# >>> Codex installer >>>
 export PATH="/home/ziyang/.local/bin:$PATH"
+# <<< Codex installer <<<
+
+# Development environment: file descriptor limits
+ulimit -n 65536

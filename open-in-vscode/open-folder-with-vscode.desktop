@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Open Folder in VS Code
+Name[zh_CN]=在 VS Code 打开此文件夹
+Exec=code %p
+Icon=code
+Type=Application
+Terminal=false
+NoDisplay=false
+X-DFM-MenuTypes=EmptyArea;BlankArea;
+X-Deepin-Vendor=user-custom

@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e
+
+# 检查 VS Code 是否安装
+if ! command -v code &> /dev/null; then
+    notify-send "错误" "未安装 VS Code，请先安装后再使用此功能" -u critical
+    exit 1
+fi
+
+# 获取传入的参数（%F 会传入选中的文件/文件夹列表）
+SELECTED_ITEMS="$1"
+CLICK_DIR="$2"
+
+# 如果有选中项，打开选中项；否则打开当前目录（%d 传入右键点击的目录）
+if [ -n "$SELECTED_ITEMS" ] && [ "$SELECTED_ITEMS" != "." ]; then
+    # 打开选中的文件/文件夹
+    code "$SELECTED_ITEMS"
+else
+    # 打开当前目录（%d 会被替换为右键点击的目录路径）
+    code "$(pwd)"
+fi
+
+# 发送成功通知（可选）
+notify-send "VS Code" "已打开指定路径|1: $1 |2: $2" -u low -i code
