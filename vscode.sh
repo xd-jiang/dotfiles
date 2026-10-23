@@ -19,7 +19,7 @@ user_home=$(get_user_home)
 echo "User home directory: $user_home"
 
 # ============ VSCode 配置路径定义 ============
-VSCODE_CONFIG_DIR="$PWD/vscode-config"
+VSCODE_CONFIG_DIR="$PWD/vscode"
 
 # 定义源文件路径
 VSCODE_KEYBINDINGS_SRC="$VSCODE_CONFIG_DIR/$os_type/keybindings.json"
