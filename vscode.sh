@@ -161,3 +161,9 @@ case "$os_type" in
         echo "Skipping im-select installation for unsupported OS: $os_type"
         ;;
 esac
+
+
+# linux下安装的vscode，有可能读不到fnm安装的node，使用如下脚本修复
+if [ "$os_type" = "linux" ]; then
+    sudo ln -sf /home/$(whoami)/.local/share/fnm/aliases/default/bin/{node,npm,npx,corepack,pnpm,pnpx} /usr/local/bin/
+fi

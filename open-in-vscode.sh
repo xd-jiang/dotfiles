@@ -119,6 +119,7 @@ Icon=vscode
 Terminal=false
 NoDisplay=false
 X-DFM-MenuTypes=SingleFile;SingleDir;
+X-DFM-Priority=Top
 X-Deepin-Vendor=user-custom
 EOF
 
@@ -135,6 +136,7 @@ Icon=vscode
 Terminal=false
 NoDisplay=false
 X-DFM-MenuTypes=EmptyArea;BlankArea;
+X-DFM-Priority=Top
 X-Deepin-Vendor=user-custom
 EOF
 
